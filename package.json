@@ -6,16 +6,28 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^5.0.2",
+    "firebase": "^8.7.1",
+    "firebase-admin": "^9.11.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.0.9",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "redux-thunk": "^2.3.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap",
+    "deploy-functions": "firebase deploy --only functions",
+    "deploy-hosting": "firebase deploy --only hosting",
+    "deploy-rules": "firebase deploy --only firestore:rules"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "firestore-rules-organizer": "^1.0.11",
+    "react-snap": "^1.23.0"
   }
 }

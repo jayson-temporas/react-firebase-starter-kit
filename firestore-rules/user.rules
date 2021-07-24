@@ -1,0 +1,3 @@
+    match /users/{user} {
+      allow read, write: if true  // update this
+    }

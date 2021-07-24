@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# REACT FIREBASE STARTER KIT
+A React JS and Firebase project you can use as a skeleton of your new React Firebase Application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project's goal is to allow developers to focus more on development and less on settings and configuration.
 
-## Available Scripts
+This project is for developers who already have atleast beginner to intermediate knowledge on ReactJS (Redux, React Hooks, etc) and Firebase (Firestore, Hosting, Authentications, etc).
 
-In the project directory, you can run:
+## What's included
+This project is an SPA (Single Page Application) with Prerendering capabilites for SEO using **react-snap**. We also use **redux** for application state management and **redux-thunk** for more advance async logic.
 
-### `npm start`
+- Homepage
+- Login Page
+- Sign up Page
+- Forgot Password Page
+- Client Dashboard
+- Admin Dashboard
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project dependencies
+- react
+- react-dom
+- react-router-dom
+- react-bootstrap
+- react-redux
+- redux-thunk
+- react-snap
+- firebase
+- firebase-admin
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+See the complete list of dependencies in **package.json** file
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Install the dependencies
+Clone this repository then install dependecies via npm
 
-### `npm run build`
+```
+npm install
+```
+### Create a Firebase Project
+Go to the Firebase website then create a new project for your web application and then setup the necessary configs (Authentication, Firestore, Functions, Hosting). You can also do it in command line assuming you install firebase cli tools.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Setup Firebase Configuration
+Create an .env.local file and add your firebase configuration
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_APP_ID=
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### NPM scripts
+create-react-app already gives us command to start, build, test our projects
 
-### `npm run eject`
+```
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm build
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Firebase cli tools also allow as to deploy our projects on Firebase ( You may need to run 'firebase login' first)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+firebase deploy
+```
 
-## Learn More
+#### Or deploy individually
+```
+firebase deploy --only functions
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+firebase deploy --only hosting
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+firebase deploy --only firestore:rules
+```
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Setup admin account for our application
 
-### Analyzing the Bundle Size
+Generate private key for your [Service Account](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk) on Firebase.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Update the service account path on **createAdminAccount.js**
 
-### Making a Progressive Web App
+Update admin email and your desired password
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Then run 
 
-### Advanced Configuration
+```
+node createAdminAccount.js
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Updating Firestore rules
 
-### Deployment
+Create a file in firestore-rules directory (user.rules) then run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+build-firestore-rules
+```
 
-### `npm run build` fails to minify
+It will consolidate all your rules in that directory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+> :warning: **Note**: Make sure you have a secure firestore security rules and firebase functions before deploying it on your firebase production environment

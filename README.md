@@ -1,4 +1,5 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![react](https://badges.aleen42.com/src/react.svg)] [![redux](https://badges.aleen42.com/src/redux.svg)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![react](https://badges.aleen42.com/src/react.svg) ![redux](https://badges.aleen42.com/src/redux.svg)
+
 # REACT FIREBASE STARTER KIT
 A React JS and Firebase project you can use as a skeleton of your new React Firebase Application.
 
